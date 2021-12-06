@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    body{ 
+      padding: 30px;
+      margin: 0;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 16px;
+      color: black;
+      }
+    p.center_style{
+        border-style:dashed;
+        border-width: 2px;
+        border-color: black;
+    }
+</style>
+<body>
+    <section>
+        <h2>The table of tweets fetched for you</h2>
+        {% for table in tables %}
+                    {{titles[loop.index]}}
+                    {{ table|safe }}
+        {% endfor %}
+    </section>
+    <section>
+        <h2>The tweets and the predicted sentiments</h2>
+        {% for tweet, response in prediction_list %}
+        <p class="center_style">
+            <p>{{tweet}}</p>
+            <p>{{response}}</p>
+            </p>
+        {% endfor %}
+    </section>
+</body>
+</html>
